@@ -15,10 +15,11 @@ import org.koin.dsl.module
 
 val tallerModules = module {
 
-    single<String>(named("BASE_URL")) { "https://geocoding-api.open-meteo.com/v1" }
+    single<String>(named("GEOCODING_URL")) { "https://geocoding-api.open-meteo.com/v1" }
+    single<String>(named("WEATHER_URL")) { "https://api.open-meteo.com/v1" }
     single<HttpClient> { createHttpClient() }
-    single<WeatherApi> { WeatherApiImpl(get(named("BASE_URL")), get()) }
-    single<GeocodingApi> { GeocodingApiImpl(get(named("BASE_URL")), get()) }
+    single<GeocodingApi> { GeocodingApiImpl(get(named("GEOCODING_URL")), get()) }
+    single<WeatherApi> { WeatherApiImpl(get(named("WEATHER_URL")), get()) }
     single<WeatherRepository> { WeatherRepositoryImpl(get(), get()) }
     viewModel { MainViewModel(get()) }
 

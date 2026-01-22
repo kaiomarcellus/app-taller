@@ -48,7 +48,7 @@ class WeatherRepositoryImpl(
                     emit(
                         value = CityWeatherUiState.Success(
                             data = CityWeather(
-                                weather = response.data.temperature ?: 0.0
+                                weather = "${response.data.currentWeather?.temperature ?: 0.0}${response.data.temperature ?: "ºC"}"
                             )
                         )
                     )
