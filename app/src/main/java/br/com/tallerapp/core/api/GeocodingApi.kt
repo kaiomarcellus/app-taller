@@ -18,7 +18,7 @@ interface GeocodingApi {
 
     suspend fun searchCoordinatesByCity(
         cityName: String
-    ): ApiResult<List<CityGeocodingResponse>>
+    ): ApiResult<CityGeocodingResponse>
 
 }
 
@@ -29,7 +29,7 @@ class GeocodingApiImpl(
 
     override suspend fun searchCoordinatesByCity(
         cityName: String
-    ): ApiResult<List<CityGeocodingResponse>> {
+    ): ApiResult<CityGeocodingResponse> {
         return httpClient.safeRequest {
             get("$baseUrl/$GEOCODING_API") {
                 contentType(ContentType.Application.Json)

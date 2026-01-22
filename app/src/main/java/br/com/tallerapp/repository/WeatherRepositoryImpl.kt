@@ -23,8 +23,8 @@ class WeatherRepositoryImpl(
                     emit(
                         value = CityCoordinatesUiState.Success(
                             data = CityCoordinates(
-                                latitude = response.data.first().latitude ?: 0.0,
-                                longitude = response.data.first().longitude ?: 0.0,
+                                latitude = response.data.results?.first()?.latitude ?: 0.0,
+                                longitude = response.data.results?.first()?.longitude ?: 0.0,
                             )
                         )
                     )

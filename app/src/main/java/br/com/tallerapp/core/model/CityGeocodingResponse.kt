@@ -4,7 +4,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class CityGeocodingResponse(
-    val name: String? = null,
-    val latitude: Double? = null,
-    val longitude: Double? = null
+    val results: List<CityGeocodingItemResponse>? = null
 )
